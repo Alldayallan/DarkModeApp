@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        overrideUserInterfaceStyle = .light
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,5 +28,16 @@ class ViewController: UIViewController {
             changeButton.tintColor = UIColor.blue
         }
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        let userInterfaceStyle = traitCollection.userInterfaceStyle
+        
+        if userInterfaceStyle == .dark {
+            changeButton.tintColor = UIColor.white
+        } else {
+            changeButton.tintColor = UIColor.blue
+        }
+    }
+    
 }
 
